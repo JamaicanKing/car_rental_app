@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wayfare Rentals — Sign in</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="auth-shell">
+  <div class="auth-brand">
+    <div class="mark">wayfare<span>.</span></div>
+    <div>
+      <div class="route"></div>
+      <p class="tagline">Pick a car, pick your dates, go. Booking a rental shouldn't take longer than the drive to pick it up.</p>
+    </div>
+    <p class="fineprint">CIS 453 prototype — Phase 3</p>
+  </div>
+
+  <div class="auth-form-wrap">
+    <div class="auth-card">
+
+      <div class="auth-toggle">
+        <button type="button" id="tab-login" class="active">Sign in</button>
+        <button type="button" id="tab-register">Create account</button>
+      </div>
+
+      <div id="alert-box"></div>
+
+      <!-- LOGIN -->
+      <form id="login-form">
+        <h1>Welcome back</h1>
+        <p class="sub">Sign in to browse cars and manage your bookings.</p>
+        <div class="field">
+          <label for="login-email">Email</label>
+          <input id="login-email" type="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Sign in</button>
+      </form>
+
+      <!-- REGISTER -->
+      <form id="register-form" hidden>
+        <h1>Create your account</h1>
+        <p class="sub">Takes under a minute.</p>
+        <div class="field-row">
+          <div class="field">
+            <label for="reg-first">First name</label>
+            <input id="reg-first" required>
+          </div>
+          <div class="field">
+            <label for="reg-last">Last name</label>
+            <input id="reg-last" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="reg-email">Email</label>
+          <input id="reg-email" type="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="reg-phone">Phone</label>
+          <input id="reg-phone" type="tel" required placeholder="315-555-0100">
+        </div>
+        <div class="field">
+          <label for="reg-address">Address</label>
+          <input id="reg-address" required placeholder="123 Main St, Syracuse, NY">
+        </div>
+        <div class="field">
+          <label for="reg-password">Password</label>
+          <input id="reg-password" type="password" required minlength="6" autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Create account</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>
