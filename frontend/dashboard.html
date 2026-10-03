@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wayfare Rentals</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="mark">wayfare<span>.</span></div>
+  <div class="who">
+    <span class="name" id="who-name"></span>
+    <button class="btn btn-ghost" id="logout-btn">Sign out</button>
+  </div>
+</div>
+
+<div class="tabs">
+  <button type="button" class="active" id="tab-browse">Browse vehicles</button>
+  <button type="button" id="tab-bookings">My bookings</button>
+</div>
+
+<main>
+
+  <!-- BROWSE -->
+  <section id="panel-browse">
+    <div class="section-head">
+      <h2>Available vehicles</h2>
+    </div>
+    <div class="filter-bar">
+      <select id="filter-type"><option value="">All vehicle types</option></select>
+      <select id="filter-location"><option value="">All locations</option></select>
+    </div>
+    <div id="vehicle-grid" class="vehicle-grid"></div>
+    <div id="vehicle-empty" class="empty-state" hidden>No vehicles match those filters right now. Try widening your search.</div>
+  </section>
+
+  <!-- MY BOOKINGS -->
+  <section id="panel-bookings" hidden>
+    <div class="section-head"><h2>My bookings</h2></div>
+    <table class="booking-table" id="bookings-table" hidden>
+      <thead>
+        <tr><th>Booking</th><th>Vehicle</th><th>Dates</th><th>Total</th><th>Status</th><th></th></tr>
+      </thead>
+      <tbody id="bookings-body"></tbody>
+    </table>
+    <div id="bookings-empty" class="empty-state" hidden>You haven't booked a vehicle yet. Head to Browse vehicles to get started.</div>
+  </section>
+
+</main>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="modal-overlay" hidden>
+  <div class="modal">
+    <h3 id="modal-title">Book this vehicle</h3>
+    <p class="modal-sub" id="modal-sub"></p>
+
+    <div id="modal-alert"></div>
+
+    <form id="booking-form">
+      <div class="field-row">
+        <div class="field">
+          <label for="pickup-date">Pick-up</label>
+          <input type="date" id="pickup-date" required>
+        </div>
+        <div class="field">
+          <label for="return-date">Return</label>
+          <input type="date" id="return-date" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="pickup-location">Pick-up location</label>
+        <select id="pickup-location" required></select>
+      </div>
+      <div class="field">
+        <label for="dropoff-location">Drop-off location</label>
+        <select id="dropoff-location" required></select>
+      </div>
+
+      <div class="cost-line">
+        <span>Estimated total</span>
+        <span id="estimate">—</span>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-accent" id="modal-confirm">Confirm booking</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
